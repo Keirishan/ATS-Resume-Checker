@@ -38,10 +38,10 @@ streamlit run app.py
 - Get ATS score based on keyword matching
 - View interactive pie chart of matched vs unmatched keywords
 
-## 📌 To-Do / Coming Soon
+## 📌 Coming Soon
 - Highlight keywords directly in resume text
 - Download report as PDF
 - Resume formatting tips
 
 ## 👨‍💻 Author
-Keirishan – LinkedIn | Portfolio (add your links here)
+- Keirishan Balachandran - [LinkedIn](https://www.linkedin.com/in/balachandran-keirishan-6a5a66197/)
