@@ -2,6 +2,7 @@ import streamlit as st
 from sklearn.feature_extraction.text import CountVectorizer
 from resume_parser import extract_text
 import re
+import plotly.graph_objects as go
 
 st.set_page_config(page_title="ATS Resume Checker", layout="centered")
 
@@ -34,10 +35,23 @@ if st.button("Check ATS Score") and job_desc and resume_file:
         score, matched = compute_score(jd_keywords, resume_keywords)
 
         st.success(f"ATS Match Score: **{score}%**")
-        st.markdown("###Matched Keywords:")
+
+        # Pie Chart: Match vs Unmatch
+        matched_count = len(matched)
+        unmatched_count = len(jd_keywords - matched)
+
+        pie_fig = go.Figure(data=[go.Pie(
+            labels=["Matched", "Unmatched"],
+            values=[matched_count, unmatched_count],
+            marker=dict(colors=["green", "red"]),
+            hole=0.4
+        )])
+        pie_fig.update_layout(title="Keyword Match Overview")
+        st.plotly_chart(pie_fig, use_container_width=True)
+
+        st.markdown("### Matched Keywords:")
         st.write(", ".join(sorted(matched)))
 
-        unmatched = jd_keywords - matched
-        if unmatched:
-            st.markdown("###Missing Keywords:")
-            st.write(", ".join(sorted(unmatched)))
+        if unmatched_count:
+            st.markdown("### Missing Keywords:")
+            st.write(", ".join(sorted(jd_keywords - matched)))
