@@ -4,6 +4,15 @@ A web-based tool to evaluate how well a resume matches a job description using k
 
 ---
 
+## 🔗 Live Demo
+
+You can try out the ATS Score Checker app live here:
+
+👉 [Click to Open the App](https://ats-resume-checker-ugika56gnb6xbswkw6u8dm.streamlit.app/)
+
+This app helps users evaluate their resumes against job descriptions using ATS-friendly scoring.
+
+
 ## 🚀 Tech Stack
 
 - **Frontend/UI**: Streamlit  
